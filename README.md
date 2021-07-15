@@ -1,2 +1,13 @@
 # matrix-engine-plugins
-First feature is 2d plane vertex text typo exported from blender.
+
+Plugins structure:
+
+<pre>
+ ├── matrix-fonts/           (Category)
+ |   ├── 2dPlaneFont/        (Name of plugin)
+ |       ├── access/
+ |       └── data/
+</pre>
+
+## Plugin 2d plane
+obj text typo export from default blender text.

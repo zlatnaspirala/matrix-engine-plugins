@@ -22,10 +22,10 @@ export class planeFont {
 
   }
 
-  load() {
+  load = (OBJ) => {
     OBJ.downloadMeshes(
       {mCharA: "data/a.obj", mCharB: "access/data/b.obj"},
-      onLoadObj)
+      this.onLoadObj)
   }
 
 };

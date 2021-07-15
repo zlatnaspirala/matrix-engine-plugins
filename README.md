@@ -1,5 +1,7 @@
 # matrix-engine-plugins
 
+# Status experimental
+
 Plugins structure:
 
 <pre>

@@ -1,5 +1,5 @@
 
-export class planeFont {
+export class planeUVFont {
 
   onLoadObj(meshes) {
     // App.meshes = meshes;

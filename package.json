@@ -1,13 +1,13 @@
 {
   "name": "matrix-engine-plugins",
-  "version": "0.0.3",
-  "description": "Experimental - plane fonts exported from blender default text converted to mesh.",
+  "version": "0.0.4",
+  "description": "Plane fonts exported from blender default text converted to mesh , delimited exported to obj.",
   "main": "app.js",
   "directories": {
-    "lib": "lib"
+    "lib": "matrix-fonts"
   },
   "scripts": {
-    "info": "echo \" MatrixEngine Plugins project \n  Enjoy!  \n  Nikola Lukic @zlatnaspirala  \""
+    "info": "echo \" Matrix-Engine-Plugins project \n  Enjoy!  \n  Nikola Lukic @zlatnaspirala  \""
   },
   "repository": {
     "type": "git",

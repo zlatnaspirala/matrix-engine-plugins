@@ -61,7 +61,7 @@ export class planeFont {
       this.onLoadObj)
   }
 
-  loadChar = (OBJ, myChar, prefixPath) => {
+  loadChar = (OBJ, myChar, identity, prefixPath) => {
 
     if (typeof myChar === 'undefined') {
       console.error('You miss main argument myChar =>  loadChar = (OBJ, myChar)');
@@ -69,6 +69,7 @@ export class planeFont {
     }
 
     if (typeof prefixPath === 'undefined') { var prefixPath = "./../../"; }
+    if (typeof identity === 'undefined') { var identity = "mChar"; }
 
     var injectArg = {};
     injectArg["mChar" + myChar.toUpperCase()] = (prefixPath + "node_modules/matrix-engine-plugins/matrix-fonts/2dPlaneFont/data/" + myChar + ".obj");

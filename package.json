@@ -1,6 +1,6 @@
 {
   "name": "matrix-engine-plugins",
-  "version": "0.0.4",
+  "version": "0.0.6",
   "description": "Plane fonts exported from blender default text converted to mesh , delimited exported to obj.",
   "main": "app.js",
   "directories": {

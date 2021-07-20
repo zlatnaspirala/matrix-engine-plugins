@@ -1,11 +1,22 @@
 
 export class planeUVFont {
 
-  onLoadObj(meshes) {
-    // App.meshes = meshes;
-    // Default
+  constructor(prefixPath) {
+    if (typeof prefixPath === 'undefined') { 
+      this.prefixPath = "./../../"; 
+    } else {
+      this.prefixPath = prefixPath;
+    }
+
+    this.currentFontTexture = this.prefixPath + "node_modules/matrix-engine-plugins/matrix-fonts/2dUVPlaneFont/data/sample2.png";
+  }
+
+  charLoaded = () => {}
+
+  onLoadObj = (meshes) => {
+    // Default tex
     var tex = {
-      source: ["./../../node_modules/matrix-engine-plugins/matrix-fonts/2dPlaneFont/data/sample1.png"],
+      source: [this.currentFontTexture],
       mix_operation: "multiply",
     };
 
@@ -13,10 +24,9 @@ export class planeUVFont {
     All.forEach((item) => {
       OBJ.initMeshBuffers(world.GL.gl, meshes[item]);
       world.Add("obj", 1, item, tex, meshes[item]);
-      App.scene[item].position.y = 0;
+      App.scene[item].position.SetY(0);
+      this.charLoaded(App.scene[item]);
     });
-    // App.scene.mCharA.LightsData.ambientLight.set(1, 1, 1);
-
   }
 
   /**
@@ -26,52 +36,48 @@ export class planeUVFont {
    * prefix path.
    * Default value "./../../"
    */
-  loadFullFont = (OBJ, prefixPath) => {
-
-    if (typeof prefixPath === 'undefined') { var prefixPath = "./../../"; }
+  loadFullFont = (OBJ) => {
     OBJ.downloadMeshes(
     {
-      mCharA: (prefixPath + "node_modules/matrix-engine-plugins/matrix-fonts/2dPlaneFont/data/a.obj"),
-      mCharB: (prefixPath + "node_modules/matrix-engine-plugins/matrix-fonts/2dPlaneFont/data/b.obj"),
-      mCharC: (prefixPath + "node_modules/matrix-engine-plugins/matrix-fonts/2dPlaneFont/data/c.obj"),
-      mCharD: (prefixPath + "node_modules/matrix-engine-plugins/matrix-fonts/2dPlaneFont/data/d.obj"),
-      mCharE: (prefixPath + "node_modules/matrix-engine-plugins/matrix-fonts/2dPlaneFont/data/e.obj"),
-      mCharF: (prefixPath + "node_modules/matrix-engine-plugins/matrix-fonts/2dPlaneFont/data/f.obj"),
-      mCharG: (prefixPath + "node_modules/matrix-engine-plugins/matrix-fonts/2dPlaneFont/data/g.obj"),
-      mCharH: (prefixPath + "node_modules/matrix-engine-plugins/matrix-fonts/2dPlaneFont/data/h.obj"),
-      mCharI: (prefixPath + "node_modules/matrix-engine-plugins/matrix-fonts/2dPlaneFont/data/i.obj"),
-      mCharJ: (prefixPath + "node_modules/matrix-engine-plugins/matrix-fonts/2dPlaneFont/data/j.obj"),
-      mCharK: (prefixPath + "node_modules/matrix-engine-plugins/matrix-fonts/2dPlaneFont/data/k.obj"),
-      mCharL: (prefixPath + "node_modules/matrix-engine-plugins/matrix-fonts/2dPlaneFont/data/l.obj"),
-      mCharM: (prefixPath + "node_modules/matrix-engine-plugins/matrix-fonts/2dPlaneFont/data/m.obj"),
-      mCharN: (prefixPath + "node_modules/matrix-engine-plugins/matrix-fonts/2dPlaneFont/data/n.obj"),
-      mCharO: (prefixPath + "node_modules/matrix-engine-plugins/matrix-fonts/2dPlaneFont/data/o.obj"),
-      mCharP: (prefixPath + "node_modules/matrix-engine-plugins/matrix-fonts/2dPlaneFont/data/p.obj"),
-      mCharR: (prefixPath + "node_modules/matrix-engine-plugins/matrix-fonts/2dPlaneFont/data/r.obj"),
-      mCharS: (prefixPath + "node_modules/matrix-engine-plugins/matrix-fonts/2dPlaneFont/data/s.obj"),
-      mCharT: (prefixPath + "node_modules/matrix-engine-plugins/matrix-fonts/2dPlaneFont/data/t.obj"),
-      mCharU: (prefixPath + "node_modules/matrix-engine-plugins/matrix-fonts/2dPlaneFont/data/u.obj"),
-      mCharW: (prefixPath + "node_modules/matrix-engine-plugins/matrix-fonts/2dPlaneFont/data/w.obj"),
-      mCharX: (prefixPath + "node_modules/matrix-engine-plugins/matrix-fonts/2dPlaneFont/data/x.obj"),
-      mCharY: (prefixPath + "node_modules/matrix-engine-plugins/matrix-fonts/2dPlaneFont/data/y.obj"),
-      mCharZ: (prefixPath + "node_modules/matrix-engine-plugins/matrix-fonts/2dPlaneFont/data/z.obj"),
-      mCharQ: (prefixPath + "node_modules/matrix-engine-plugins/matrix-fonts/2dPlaneFont/data/b.obj"),
+      mCharA: (this.prefixPath + "node_modules/matrix-engine-plugins/matrix-fonts/2dUVPlaneFont/data/a.obj"),
+      mCharB: (this.prefixPath + "node_modules/matrix-engine-plugins/matrix-fonts/2dUVPlaneFont/data/b.obj"),
+      mCharC: (this.prefixPath + "node_modules/matrix-engine-plugins/matrix-fonts/2dUVPlaneFont/data/c.obj"),
+      mCharD: (this.prefixPath + "node_modules/matrix-engine-plugins/matrix-fonts/2dUVPlaneFont/data/d.obj"),
+      mCharE: (this.prefixPath + "node_modules/matrix-engine-plugins/matrix-fonts/2dUVPlaneFont/data/e.obj"),
+      mCharF: (this.prefixPath + "node_modules/matrix-engine-plugins/matrix-fonts/2dUVPlaneFont/data/f.obj"),
+      mCharG: (this.prefixPath + "node_modules/matrix-engine-plugins/matrix-fonts/2dUVPlaneFont/data/g.obj"),
+      mCharH: (this.prefixPath + "node_modules/matrix-engine-plugins/matrix-fonts/2dUVPlaneFont/data/h.obj"),
+      mCharI: (this.prefixPath + "node_modules/matrix-engine-plugins/matrix-fonts/2dUVPlaneFont/data/i.obj"),
+      mCharJ: (this.prefixPath + "node_modules/matrix-engine-plugins/matrix-fonts/2dUVPlaneFont/data/j.obj"),
+      mCharK: (this.prefixPath + "node_modules/matrix-engine-plugins/matrix-fonts/2dUVPlaneFont/data/k.obj"),
+      mCharL: (this.prefixPath + "node_modules/matrix-engine-plugins/matrix-fonts/2dUVPlaneFont/data/l.obj"),
+      mCharM: (this.prefixPath + "node_modules/matrix-engine-plugins/matrix-fonts/2dUVPlaneFont/data/m.obj"),
+      mCharN: (this.prefixPath + "node_modules/matrix-engine-plugins/matrix-fonts/2dUVPlaneFont/data/n.obj"),
+      mCharO: (this.prefixPath + "node_modules/matrix-engine-plugins/matrix-fonts/2dUVPlaneFont/data/o.obj"),
+      mCharP: (this.prefixPath + "node_modules/matrix-engine-plugins/matrix-fonts/2dUVPlaneFont/data/p.obj"),
+      mCharR: (this.prefixPath + "node_modules/matrix-engine-plugins/matrix-fonts/2dUVPlaneFont/data/r.obj"),
+      mCharS: (this.prefixPath + "node_modules/matrix-engine-plugins/matrix-fonts/2dUVPlaneFont/data/s.obj"),
+      mCharT: (this.prefixPath + "node_modules/matrix-engine-plugins/matrix-fonts/2dUVPlaneFont/data/t.obj"),
+      mCharU: (this.prefixPath + "node_modules/matrix-engine-plugins/matrix-fonts/2dUVPlaneFont/data/u.obj"),
+      mCharW: (this.prefixPath + "node_modules/matrix-engine-plugins/matrix-fonts/2dUVPlaneFont/data/w.obj"),
+      mCharX: (this.prefixPath + "node_modules/matrix-engine-plugins/matrix-fonts/2dUVPlaneFont/data/x.obj"),
+      mCharY: (this.prefixPath + "node_modules/matrix-engine-plugins/matrix-fonts/2dUVPlaneFont/data/y.obj"),
+      mCharZ: (this.prefixPath + "node_modules/matrix-engine-plugins/matrix-fonts/2dUVPlaneFont/data/z.obj"),
+      mCharQ: (this.prefixPath + "node_modules/matrix-engine-plugins/matrix-fonts/2dUVPlaneFont/data/b.obj"),
     },
       this.onLoadObj)
   }
 
-  loadChar = (OBJ, myChar, identity, prefixPath) => {
+  loadChar = (OBJ, myChar, identity) => {
 
     if (typeof myChar === 'undefined') {
       console.error('You miss main argument myChar =>  loadChar = (OBJ, myChar)');
       return false;
     }
-
-    if (typeof prefixPath === 'undefined') { var prefixPath = "./../../"; }
     if (typeof identity === 'undefined') { var identity = "mChar"; }
 
     var injectArg = {};
-    injectArg[identity + myChar.toUpperCase()] = (prefixPath + "node_modules/matrix-engine-plugins/matrix-fonts/2dPlaneFont/data/" + myChar + ".obj");
+    injectArg[identity + myChar.toUpperCase()] = (this.prefixPath + "node_modules/matrix-engine-plugins/matrix-fonts/2dUVPlaneFont/data/" + myChar + ".obj");
     OBJ.downloadMeshes(injectArg, this.onLoadObj);
   }
 

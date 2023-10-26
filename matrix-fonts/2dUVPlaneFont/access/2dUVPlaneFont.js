@@ -22,7 +22,7 @@ export class planeUVFont {
 
     var All = Object.keys(meshes);
     All.forEach((item) => {
-      OBJ.initMeshBuffers(world.GL.gl, meshes[item]);
+      matrixEngine.objLoader.initMeshBuffers(world.GL.gl, meshes[item]);
       world.Add("obj", 1, item, tex, meshes[item]);
       App.scene[item].position.SetY(0);
       this.charLoaded(App.scene[item]);
@@ -36,8 +36,8 @@ export class planeUVFont {
    * prefix path.
    * Default value "./../../"
    */
-  loadFullFont = (OBJ) => {
-    OBJ.downloadMeshes(
+  loadFullFont = (objLoader) => {
+    objLoader.downloadMeshes(
     {
       mCharA: (this.prefixPath + "node_modules/matrix-engine-plugins/matrix-fonts/2dUVPlaneFont/data/a.obj"),
       mCharB: (this.prefixPath + "node_modules/matrix-engine-plugins/matrix-fonts/2dUVPlaneFont/data/b.obj"),
@@ -68,7 +68,7 @@ export class planeUVFont {
       this.onLoadObj)
   }
 
-  loadChar = (OBJ, myChar, identity) => {
+  loadChar = (objLoader, myChar, identity) => {
 
     if (typeof myChar === 'undefined') {
       console.error('You miss main argument myChar =>  loadChar = (OBJ, myChar)');
@@ -78,7 +78,7 @@ export class planeUVFont {
 
     var injectArg = {};
     injectArg[identity + myChar.toUpperCase()] = (this.prefixPath + "node_modules/matrix-engine-plugins/matrix-fonts/2dUVPlaneFont/data/" + myChar + ".obj");
-    OBJ.downloadMeshes(injectArg, this.onLoadObj);
+    objLoader.downloadMeshes(injectArg, this.onLoadObj);
   }
 
 };

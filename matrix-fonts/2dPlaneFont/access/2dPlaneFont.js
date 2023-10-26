@@ -19,7 +19,7 @@ export class planeFont {
 
     var All = Object.keys(meshes);
     All.forEach((item) => {
-      OBJ.initMeshBuffers(world.GL.gl, meshes[item]);
+      matrixEngine.objLoader.initMeshBuffers(world.GL.gl, meshes[item]);
       world.Add("obj", 1, item, tex, meshes[item]);
       App.scene[item].position.setY(0);
       this.charLoaded(App.scene[item]);

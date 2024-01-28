@@ -1,12 +1,14 @@
 {
   "name": "matrix-engine-plugins",
-  "version": "0.1.0",
-  "description": "MTM text manipulation func, Plane fonts exported from blender default text converted to mesh , delimited exported to obj.",
+  "version": "0.1.2",
+  "description": "Matrix-engine support repo.",
   "main": "app.js",
   "directories": {
     "lib": "matrix-fonts"
   },
   "scripts": {
+    "shader1": "watchify nidza-shaders/shader1.js -p [esmify --noImplicitAny] -o nidza-shaders/builds/shader1.js",
+    "shader2": "watchify nidza-shaders/shader2.js -p [esmify --noImplicitAny] -o nidza-shaders/builds/shader2.js",
     "info": "echo \" Matrix-Engine-Plugins project \n  Enjoy!  \n  Nikola Lukic @zlatnaspirala  \""
   },
   "repository": {
@@ -33,6 +35,13 @@
     "url": "https://github.com/zlatnaspirala/webgl2-glmatrix2-engine/issues"
   },
   "homepage": "https://github.com/zlatnaspirala/webgl2-glmatrix2-engine#readme",
-  "dependencies": {},
-  "devDependencies": {}
+  "dependencies": {
+    "nidza": "^1.2.21"
+  },
+  "devDependencies": {
+    "esmify": "^2.1.1",
+    "browser-resolve": "^2.0.0",
+    "browserify": "^17.0.0",
+    "watchify": "^4.0.0"
+  }
 }

@@ -39,6 +39,8 @@ font.charLoaded = (obj) => {
 };
 ```
 
-# Credits
+# Credits & Licences
  - Blender 3d software
  - Gimp
+ - Shader used from https://www.shadertoy.com/view/lcfXD8
+ 
